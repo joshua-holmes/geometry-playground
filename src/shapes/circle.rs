@@ -16,7 +16,7 @@ impl Circle {
         }
     }
 
-    pub fn new(radius: f64) -> Result<Self, SizeError> {
+    pub fn build(radius: f64) -> Result<Self, SizeError> {
         let result = Self::check_size(radius);
         match result {
             1 => Err(SizeError::TooBig),
@@ -25,15 +25,15 @@ impl Circle {
         }
     }
 
-    pub fn get_cir(&self) -> f64 {
+    pub fn calc_cir(&self) -> f64 {
         2.0 * PI * self.radius
     }
 
-    pub fn get_area(&self) -> f64 {
+    pub fn calc_area(&self) -> f64 {
         PI * self.radius.powi(2)
     }
 
-    pub fn get_dia(&self) -> f64 {
+    pub fn calc_dia(&self) -> f64 {
         self.radius * 2.0
     }
 

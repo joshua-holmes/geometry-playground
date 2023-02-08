@@ -16,7 +16,7 @@ impl Rectangle {
         }
     }
 
-    pub fn new(height: f64, width: f64) -> Result<Self, SizeError> {
+    pub fn build(height: f64, width: f64) -> Result<Self, SizeError> {
         let results: [i8; 2] = [Self::check_size(height), Self::check_size(width)];
         for result in results {
             match result {
@@ -28,19 +28,19 @@ impl Rectangle {
         Ok(Self { height, width })
     }
 
-    pub fn new_square(side: f64) -> Result<Self, SizeError> {
-        Self::new(side, side)
+    pub fn build_square(side: f64) -> Result<Self, SizeError> {
+        Self::build(side, side)
     }
 
-    pub fn get_area(&self) -> f64 {
+    pub fn calc_area(&self) -> f64 {
         self.height * self.width
     }
 
-    pub fn get_perim(&self) -> f64 {
+    pub fn calc_perim(&self) -> f64 {
         (self.height + self.width) * 2.0
     }
 
-    pub fn get_diag_len(&self) -> f64 {
+    pub fn calc_diag_len(&self) -> f64 {
         (self.height.powi(2) + self.width.powi(2)).sqrt()
     }
 
